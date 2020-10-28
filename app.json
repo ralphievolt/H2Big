@@ -1,0 +1,12 @@
+{
+  "name": "H2Big",
+  "displayName": "H2Big",
+  "expo": {
+    "name": "H2Big",
+    "slug": "H2Big",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
