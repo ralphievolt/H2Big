@@ -9,7 +9,6 @@ export default function NumberOfDeliveries() {
         <Card
           style={{
             width: "50%",
-            borderRadius: 0,
             backgroundColor: "#f7f7f7",
           }}
         >
@@ -33,7 +32,7 @@ export default function NumberOfDeliveries() {
             </View>
           </Card.Content>
         </Card>
-        <Card style={{ width: "50%", borderRadius: 0 }}>
+        <Card style={{ width: "50%" }}>
           <Card.Title title="Houses" />
           <Card.Content>
             <View

@@ -1,26 +1,50 @@
 import * as React from "react";
-import { Appbar } from "react-native-paper";
+import { Appbar, Menu, Divider } from "react-native-paper";
+import { useAtom } from "jotai";
+
+import { VISIBLE } from "../atoms/";
+import AddCustomer from "../components/add-customer";
 
 export default function AppHeader() {
-  const today = new Date();
+  const [visible, setVisible] = React.useState(false);
 
-  // today.toLocaleDateString("en-US", {
-  //   month: "long",
-  //   day: "numeric",
-  //   year: "numeric",
-  // })}
-  const _handleMore = () => console.log("Shown more");
+  const [, setVISIBLE] = useAtom(VISIBLE);
+
+  const _openMenu = () => setVisible(true);
+  const _closeMenu = () => setVisible(false);
 
   return (
     <>
-      <Appbar.Header style={{ backgroundColor: "#1ca3ec" }}>
+      <Appbar.Header>
         <Appbar.Content
           title="Customer Deliveries List"
           subtitle="Today's Delivery"
           color="white"
         />
-        <Appbar.Action icon="dots-vertical" onPress={_handleMore} />
+
+        <Menu
+          onDismiss={_closeMenu}
+          visible={visible}
+          anchor={
+            <Appbar.Action
+              color="white"
+              icon="dots-vertical"
+              onPress={_openMenu}
+            />
+          }
+        >
+          <Menu.Item
+            onPress={() => {
+              setVISIBLE(true);
+              setVisible(false);
+            }}
+            title="Add Customer"
+          />
+          <Divider />
+          <Menu.Item onPress={() => {}} title="Delivery Chart" />
+        </Menu>
       </Appbar.Header>
+      <AddCustomer />
     </>
   );
 }
